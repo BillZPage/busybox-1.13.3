@@ -8,6 +8,7 @@ SKIP_STRIP = n
 
 # -std=gnu99 needed for [U]LLONG_MAX on some systems
 CPPFLAGS += $(call cc-option,-std=gnu99,)
+CPPFLAGS += -march=armv4t
 
 CPPFLAGS += \
 	-Iinclude -Ilibbb \
@@ -75,6 +76,7 @@ endif
 ifeq ($(CONFIG_STATIC),y)
 CFLAGS_busybox += -static
 endif
+CFLAGS_busybox += -march=armv4t
 
 ifeq ($(CONFIG_PIE),y)
 CFLAGS_busybox += $(ARCH_PIE)
